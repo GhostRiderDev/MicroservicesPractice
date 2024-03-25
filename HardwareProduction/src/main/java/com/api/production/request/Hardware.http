@@ -1,0 +1,39 @@
+###
+POST http://localhost:8080/hardware/add
+Content-Type: application/json
+
+{
+  "type_id": 1,
+  "unit_cost": 1200.99,
+  "hardware_name": "Macbook"
+}
+
+
+###
+GET http://localhost:8080/hardware/list/1
+
+###
+GET http://localhost:8080/hardware/list
+
+
+###
+PUT http://localhost:8080/hardware/update/2
+Content-Type: application/json
+
+{
+  "type_id": 6,
+  "unit_cost": 500.45,
+  "hardware_name": "Intel i7"
+}
+
+###
+DELETE http://localhost:8080/hardware/delete/6
+
+
+###
+GET http://localhost:8080/hardware/list/byType/1
+
+
+
+
+

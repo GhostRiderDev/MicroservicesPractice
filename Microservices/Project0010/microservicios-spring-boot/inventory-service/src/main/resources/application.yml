@@ -1,0 +1,33 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/InventoryService
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  zipkin:
+    base-url: http://127.0.0.1:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+
+  application:
+    name: inventory-service
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:podgorica@localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus

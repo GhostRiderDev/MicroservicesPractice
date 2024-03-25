@@ -1,0 +1,20 @@
+POST http://localhost:8080/api/v1/productions/add
+Content-Type: application/json
+
+{
+  "region_id": 4,
+  "hardware_id":1,
+  "quantity": 456,
+  "date": "2022/11/11"
+}
+
+###
+GET http://localhost:8080/api/v1/productions/1
+
+
+###
+GET http://localhost:8080/api/v1/productions/list
+
+###
+DELETE http://localhost:8080/api/v1/productions/delete/2
+
