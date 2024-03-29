@@ -3,17 +3,23 @@ import jakarta.persistence.*;
 
 import java.util.HashSet;
 import java.util.Set;
+import lombok.*;
 
 
 @Entity
 @Table(name = "Role")
+@NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@Builder
 public class RoleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_role")
-    private Long id;
+    private Integer id;
 
-    @Column(name = "role_name")
+    @Column(name = "role_name", unique = true, nullable = false)
     @Enumerated(EnumType.STRING)
     private RoleEnum roleEnum;
 
@@ -22,5 +28,4 @@ public class RoleEntity {
             joinColumns = @JoinColumn(name = "id_role"),
             inverseJoinColumns = @JoinColumn(name = "id_permission"))
     private Set<PermissionEntity> permissions = new HashSet<>();
-
 }
